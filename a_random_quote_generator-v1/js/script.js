@@ -93,3 +93,6 @@ randomRGB();
 
 //This code is provided with the project materials.
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+//I tweaked the above code to get the background color to change on click, rather than
+// just when the page was refreshed.
+document.getElementById('loadQuote').addEventListener("click", randomRGB, false);
