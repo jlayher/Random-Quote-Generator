@@ -1,27 +1,36 @@
+/*When being graded, I am aiming for the "exceeds expectations" grade.
+In the even that my project does not meet the requirements for exceeds expectations
+I would like to attempt to meet the criteria again, rather than settle for
+a "meets expectations" grade.
+*/
+
 /*
 The array of objects "quotes" is created.  It contains 7 quotes total.  The first
-quote lacks a citation, and the final quote lacks a year property.
+quote lacks a citation, and the final quote lacks a year property.  For the sake of
+the project, I removed the tag property from one of the objects in the array, so
+that the final conditional statement in the print function has to check for the
+existence of the property.
 */
 var quotes = [
-  {quote: "I do parkour.", source: "Jacopo Greenslade", year: "2012"},
+  {quote: "I do parkour.", source: "Jacopo Greenslade", year: "2012", tag: "Friend"},
 
-  {quote: "That's a lotta fish.", source: "Mathew Broderick", citation: "Godzilla", year: "1998"},
+  {quote: "That's a lotta fish.", source: "Mathew Broderick", citation: "Godzilla", year: "1998", tag: "Movie"},
 
   {quote: "Part time...", source: "Harison Ford",
-  citation: "Indiana Jones and the Kingdom of the Crystal Skull", year: "2008"},
+  citation: "Indiana Jones and the Kingdom of the Crystal Skull", year: "2008", tag: "Movie"},
 
   {quote: "Star Wars The Phantom Menace was the most dissapointing thing since my son.",
-  source: "Harry S. Plinkett", citation: "Red Letter Media", year: "2012"},
+  source: "Harry S. Plinkett", citation: "Red Letter Media", year: "2012", tag: "Youtube"},
 
   {quote: "Now this is podracing!", source: "Anakin Skywalker",
-  citation: "Star Wars Episode I, The Phantom Menace", year: "1999"},
+  citation: "Star Wars Episode I, The Phantom Menace", year: "1999", tag: "Movie"},
 
   {quote: "Star Wars is really about a top half Darth Maul robot," +
   " and a bottom half Darth Maul robot fighting each other with 20 lightsabers," +
   " while Obi-Wan is stuck in the middle",
   source: "Rich Evans", citation: "The Nerd Crew", year: "2017"},
 
-  {quote: "I'm the baby!  Gotta love me!", source: "Baby Sinclair", citation: "Dinosaurs"},
+  {quote: "I'm the baby!  Gotta love me!", source: "Baby Sinclair", citation: "Dinosaurs", tag: "TV Show"},
 ];
 console.log(quotes);
 
@@ -43,6 +52,10 @@ added to a string called "html".  In the case that a "citation" or "year" proper
 are contained in the above array, those are added to or omitted from
 the html string, using conditional statements.  The text is fromatted for HTML
 and returns the html value created.
+
+For Exceeds Expectations Credit, I have added another property to the Array of
+Objects above, titled "tag".  This is formatted to display following the year
+property, seperated by a comma and a space.
 */
 function printQuote() {
   var randomQuote = getRandomQuote();
@@ -56,12 +69,27 @@ function printQuote() {
   if (randomQuote.year) {
     html += '<span class="year">' + randomQuote.year + '</span>';
   };
+  if (randomQuote.tag) {
+    html+= '<span class="tag">, ' + randomQuote.tag + ' </span>';
 
+  };
   html += '</p>';
   document.getElementById('quote-box').innerHTML = html;
   return html;
 };
 printQuote();
 
-//This code is provided with the project materials.  
+//This function provides a random background color for the Exceeds Expectations Reqs.
+function randomRGB() {
+    var x = Math.floor(Math.random() *256);
+    var y = Math.floor(Math.random() *256);
+    var z = Math.floor(Math.random() *256);
+    var background = "rgb(" + x + "," + y + "," + z + ")";
+    document.body.style.background= background;
+    document.getElementById("loadQuote").onclick= background;
+};
+
+randomRGB();
+
+//This code is provided with the project materials.
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
