@@ -7,8 +7,9 @@ a "meets expectations" grade.
 /*
 The array of objects "quotes" is created.  It contains 7 quotes total.  The first
 quote lacks a citation, and the final quote lacks a year property.  For the sake of
-the project, I removed the tag property from one of the objects in the array, so
-that the final conditional statement in the print function has to check for the
+the project's exctra credit, I added a "tag" property to all Objects,
+however, I removed the tag property from one of the objects in the array(the 6th quote),
+so that the final conditional statement in the print function has to check for the
 existence of the property.
 */
 var quotes = [
@@ -32,7 +33,7 @@ var quotes = [
 
   {quote: "I'm the baby!  Gotta love me!", source: "Baby Sinclair", citation: "Dinosaurs", tag: "TV Show"},
 ];
-console.log(quotes);
+
 
 /*
 Get Random Quote Function is created.  The variable "randomNumber" stores a value
@@ -43,13 +44,13 @@ function getRandomQuote(){
   var randomNumber = Math.floor(Math.random()*quotes.length);
   return quotes[randomNumber];
 };
-console.log(getRandomQuote());
+
 
 /*
 The printQuote function is created.  This function calls the getRandomQuote
 function above, and the object properties from the randomly selected array are
 added to a string called "html".  In the case that a "citation" or "year" property
-are contained in the above array, those are added to or omitted from
+are contained in the above array, those are added to, or omitted from
 the html string, using conditional statements.  The text is fromatted for HTML
 and returns the html value created.
 
@@ -80,6 +81,8 @@ function printQuote() {
 printQuote();
 
 //This function provides a random background color for the Exceeds Expectations Reqs.
+//This is done by generating a random red, blue, and green value, combining them,
+//and updating the background color, to the element generated.
 function randomRGB() {
     var x = Math.floor(Math.random() *256);
     var y = Math.floor(Math.random() *256);
@@ -88,9 +91,11 @@ function randomRGB() {
     document.body.style.background= background;
     document.getElementById("loadQuote").onclick= background;
 };
-
 randomRGB();
 
+//This code sets an interval, or a time at which the quote and background color change
+setInterval(printQuote, 5000);
+setInterval(randomRGB, 5000);
 //This code is provided with the project materials.
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 //I tweaked the above code to get the background color to change on click, rather than
