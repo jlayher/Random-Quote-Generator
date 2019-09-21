@@ -28,7 +28,7 @@ var quotes = [
 
   {quote: "Star Wars is really about a top half Darth Maul robot," +
   " and a bottom half Darth Maul robot fighting each other with 20 lightsabers," +
-  " while Obi-Wan is stuck in the middle",
+  " while Obi-Wan is stuck in the middle.",
   source: "Rich Evans", citation: "The Nerd Crew", year: "2017"},
 
   {quote: "I'm the baby!  Gotta love me!", source: "Baby Sinclair", citation: "Dinosaurs", tag: "TV Show"},
